@@ -14,3 +14,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 echo "Setup concluído! Para rodar, use: python app.py"
+
+Funcionalidade,Design no Swagger,Tipo de Entrada
+POST /solicitacoes,Campos individuais (estilo input),form: CriacaoSolicitacaoSchema
+POST /cadastros,Campos individuais (estilo input),form: CriacaoCadastroSchema
+PUT /solicitacoes/{id},Campo de ID na URL,path: IdPathSchema
