@@ -49,12 +49,12 @@ def home():
 # -----------------------------------------------------------------------------
 
 @app.post("/cadastros", tags=[cadastro_tag])
-# Alterado de 'body' para 'form' para gerar campos individuais no Swagger
+
 def criar_cadastro(form: CriacaoCadastroSchema):
     """Adiciona um novo material à base com campos individuais"""
     session = Session()
     try:
-        # Usamos form.model_dump() agora que o nome do parâmetro mudou
+        
         dados = form.model_dump() 
         cadastro = Cadastro(**dados)
         session.add(cadastro)
@@ -118,11 +118,11 @@ def deletar_cadastro(path: IdPathSchema):
     
 
 @app.post("/solicitacoes", tags=[solicitacao_tag], responses={"201": RespostaSolicitacaoSchema})
-def criar_solicitacao(form: CriacaoSolicitacaoSchema): # <--- Mude de 'body' para 'form'
+def criar_solicitacao(form: CriacaoSolicitacaoSchema): 
     """Cria uma solicitação com campos individuais de preenchimento"""
     session = Session()
     try:
-        # 3. Lembre-se de mudar de 'body' para 'form' aqui dentro também
+        
         cadastro = session.query(Cadastro).filter(Cadastro.id == form.cadastro_id).first()
         
         if not cadastro:
@@ -217,7 +217,7 @@ def listar_estoque():
     """Lista todos os itens em estoque com os nomes dos produtos."""
     session = Session()
     try:
-        # O options(joinedload...) força o carregamento dos relacionamentos
+        
         itens = session.query(Estoque).options(
             joinedload(Estoque.solicitacao).joinedload(Solicitacao.cadastro)
         ).all()
@@ -253,7 +253,7 @@ def deletar_estoque(path: IdPathSchema):
 def gerar_estoque_da_solicitacao(solicitacao: Solicitacao):
     """
     Regra de negócio para atender uma solicitação e gerar estoque.
-    Baseado na sua Model, o Estoque só precisa da quantidade e do vínculo com a solicitação.
+    O estoque só precisa da quantidade e do vínculo com a solicitação.
     """
     if solicitacao.status == "ATENDIDA":
         raise ValueError("Solicitação já atendida")
