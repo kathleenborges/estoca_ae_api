@@ -12,7 +12,7 @@ O **Estoca-aê** é uma API de gerenciamento de estoque que tem por objetivo fac
 * **SQLite**: Banco de dados relacional leve.
 * **Pydantic**: Validação de dados e definição de Schemas.
 
-## 📋 Funcionalidades Principal
+## 📋 Funcionalidades Principais
 
 - **Cadastro de Materiais**: Registro completo de itens na base de dados.
 *(Suporta: POST, GET e DELETE)*
