@@ -10,7 +10,7 @@ class CriacaoSolicitacaoSchema(BaseModel):
     quantidade: int = 1
 
     model_config = ConfigDict(
-        # Isso remove os campos individuais e foca no objeto JSON
+        
         json_schema_extra={
             "example": {
                 "cadastro_id": 2,
