@@ -6,7 +6,6 @@ class RespostaEstoqueSchema(BaseModel):
     id: int
     quantidade_disponivel: int
     data_entrada: datetime
-    # Adicione o Optional ou um valor padrão se o campo for obrigatório no Schema
     cadastro_id: Optional[int] = None
     nome: Optional[str] = None
 
