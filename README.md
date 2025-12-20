@@ -1,4 +1,4 @@
-# 📦 Estoca-aê API
+# 📦 Estoca aê! API
 Primeiro MVP para Pós PUC RIO - Engenharia de Software 
 
 O **Estoca-aê** é uma API de gerenciamento de estoque que tem por objetivo facilitar e centralizar o controle de materiais e solicitações de suprimentos de qualquer empresa.
