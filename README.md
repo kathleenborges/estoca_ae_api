@@ -43,7 +43,6 @@ Abra o seu navegador em: http://127.0.0.1:5001/openapi
 
 *"Dica: Certifique-se de selecionar o interpretador Python do ambiente virtual (venv-api) no seu editor."*
 
-**Deseja que eu te ajude a subir essa versão final para o GitHub agora?**
 
 ## 🛠️ Estrutura do Projeto
 app.py: Ponto de entrada da aplicação e definição das rotas.
