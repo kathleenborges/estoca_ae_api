@@ -1,19 +1,36 @@
-from pydantic import BaseModel, HttpUrl
-
+from pydantic import BaseModel, ConfigDict 
+from typing import List
 
 class CriacaoCadastroSchema(BaseModel):
-    """ Criar o cadastro """
-    nome: str
-    valor: float
-    link: HttpUrl
+    """ Define como um novo cadastro deve ser enviado """
+    nome: str = "Sapato"
+    valor: float = 100.00
+    link: str = "https://www.google.com"
 
 
 class RespostaCadastroSchema(BaseModel):
-    """ Resposta do cadastro """
-    id: int
-    nome: str
-    valor: float
-    link: str
+    """ Define como os dados do cadastro serão retornados """
+    id: int 
+    nome: str = "Sapato"
+    valor: float = 100.00
+    link: str = "https://www.google.com"
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
+
+class ListaCadastrosSchema(BaseModel):
+    """ Define como uma lista de cadastros será retornada.
+    """
+    cadastros: List[RespostaCadastroSchema]
+
+class CadastroBuscaSchema(BaseModel):
+    """ Define como deve ser a estrutura que representa a busca. Que será
+        feita apenas com base no nome do produto.
+    """
+    nome: str = "Sapato"
+
+class CadastroDelSchema(BaseModel):
+    """ Define como deve ser a estrutura do dado retornado após uma requisição
+        de remoção.
+    """
+    message: str
+    nome: str

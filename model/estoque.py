@@ -20,3 +20,17 @@ class Estoque(Base):
     )
 
     solicitacao = relationship("Solicitacao", back_populates="estoque")
+
+    @property
+    def cadastro_id(self):
+        """Busca o ID do cadastro através do relacionamento com a solicitação"""
+        if self.solicitacao:
+            return self.solicitacao.cadastro_id
+        return None
+
+    @property
+    def nome(self):
+        """Busca o Nome do produto através da solicitação -> cadastro"""
+        if self.solicitacao and self.solicitacao.cadastro:
+            return self.solicitacao.cadastro.nome
+        return None
