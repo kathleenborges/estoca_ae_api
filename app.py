@@ -261,16 +261,18 @@ def gerar_estoque_da_solicitacao(solicitacao: Solicitacao):
     if solicitacao.estoque:
         raise ValueError("Estoque já gerado")
 
+    data_atual_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+
     # Criar o estoque exatamente com as colunas definidas na Model Estoque
     novo_estoque = Estoque(
         quantidade_disponivel=solicitacao.quantidade,
-        data_entrada=datetime.now(),
+        data_entrada=data_atual_str,
         solicitacao_id=solicitacao.id  
     )
     
     # Vincula o objeto para o SQLAlchemy e para o Pydantic
     solicitacao.estoque = novo_estoque
-    solicitacao.data_atendimento = datetime.now()
+    solicitacao.data_atendimento = data_atual_str
     solicitacao.status = "ATENDIDA"
 
 # -----------------------------------------------------------------------------
