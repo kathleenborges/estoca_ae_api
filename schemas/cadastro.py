@@ -14,6 +14,7 @@ class RespostaCadastroSchema(BaseModel):
     nome: str = "Sapato"
     valor: float = 100.00
     link: str = "https://www.google.com"
+    data_cadastro: str 
 
     model_config = ConfigDict(from_attributes=True)
 
