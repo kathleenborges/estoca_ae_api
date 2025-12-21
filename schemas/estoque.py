@@ -1,13 +1,12 @@
 from pydantic import BaseModel, ConfigDict
-from datetime import datetime
 from typing import List, Optional
 
 class RespostaEstoqueSchema(BaseModel):
     id: int
     quantidade_disponivel: int
-    data_entrada: datetime
+    data_entrada: str
     cadastro_id: Optional[int] = None
-    nome: Optional[str] = None
+    nome: str
 
     model_config = ConfigDict(from_attributes=True)
 
