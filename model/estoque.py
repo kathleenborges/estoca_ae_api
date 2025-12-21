@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
@@ -10,7 +10,7 @@ class Estoque(Base):
 
     id = Column(Integer, primary_key=True)
     quantidade_disponivel = Column(Integer, nullable=False)
-    data_entrada = Column(DateTime, default=datetime.now)
+    data_entrada = Column(String(20), default=lambda: datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
 
     solicitacao_id = Column(
         Integer,
