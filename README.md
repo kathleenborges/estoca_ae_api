@@ -25,7 +25,7 @@ O **Estoca aê!** é uma API de gerenciamento de estoque que tem por objetivo fa
 
 1. **Clone o repositório:**
    ```bash
-https://github.com/kathleenborges/estoca_ae_api.git
+   https://github.com/kathleenborges/estoca_ae_api.git
    
 2. **Crie e ative o ambiente virtual:**
 
