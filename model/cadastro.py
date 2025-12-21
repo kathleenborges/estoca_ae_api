@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, DateTime, Float
+from sqlalchemy import Column, String, Integer, Float
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from typing import Union
@@ -13,7 +13,7 @@ class Cadastro(Base):
     nome = Column(String(140), unique=True, nullable=False)
     valor = Column(Float, nullable=False)
     link = Column(String(400), unique=True, nullable=False)
-    data_cadastro = Column(DateTime, default=datetime.now)
+    data_cadastro = Column(String(20), default=lambda: datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
 
     # Relacionamento 1:N com Solicitação
     solicitacoes = relationship(
@@ -23,7 +23,7 @@ class Cadastro(Base):
     )
 
     def __init__(self, nome:str, valor:float, link:str,
-                 data_cadastro:Union[DateTime, None] = None):
+                 data_cadastro: Union[str, None] = None):
         """
         Cadastrando o material
 
@@ -45,3 +45,4 @@ class Cadastro(Base):
         """ Faz uma solicitacao do material
         """
         self.solicitacoes.append(solicitacao)
+
