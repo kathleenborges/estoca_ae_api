@@ -1,12 +1,10 @@
 from pydantic import BaseModel, Field, ConfigDict
-from typing import List
-from datetime import datetime
-from typing import Optional, Literal
+from typing import List, Optional, Literal 
 from schemas.estoque import RespostaEstoqueSchema
 
 class CriacaoSolicitacaoSchema(BaseModel):
     cadastro_id: int = 2
-    data_necessidade: datetime = Field(default="2026-01-29T00:00:00")
+    data_necessidade: str = Field(default="2026-01-29T00:00:00")
     quantidade: int = 1
 
     model_config = ConfigDict(
@@ -27,9 +25,10 @@ class RespostaSolicitacaoSchema(BaseModel):
     id: int
     quantidade: int
     status: str
-    data_solicitacao: datetime
-    data_necessidade: Optional[datetime] = "2026-01-29T00:00:00"
-    data_atendimento: Optional[datetime] = "2026-01-29T00:00:00"
+    nome_material: str
+    data_solicitacao: str
+    data_necessidade: Optional[str] = "2026-01-29T00:00:00"
+    data_atendimento: Optional[str] = "2026-01-29T00:00:00"
     estoque: Optional[RespostaEstoqueSchema] 
 
     model_config = ConfigDict(from_attributes=True)
