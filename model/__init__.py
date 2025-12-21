@@ -23,6 +23,6 @@ engine = create_engine(
 )
 
 # Instancia um criador de seção com o banco
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-
+Base.metadata.create_all(bind=engine)
