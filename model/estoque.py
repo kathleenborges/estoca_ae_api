@@ -33,4 +33,4 @@ class Estoque(Base):
         """Busca o Nome do produto através da solicitação -> cadastro"""
         if self.solicitacao and self.solicitacao.cadastro:
             return self.solicitacao.cadastro.nome
-        return None
+        return "Material não identificado"
