@@ -29,16 +29,21 @@ O **Estoca aê!** é uma API de gerenciamento de estoque que tem por objetivo fa
    cd estoca_ae_api
 
 2. **Crie e ative o ambiente virtual:**
+
 python3.10 -m venv venv-api
+
 source venv-api/bin/activate
 
 3. **Instale as dependências:**
+
 pip install -r requirements.txt
 
 4. **Inicie o servidor:**
+
 python3.10 app.py
   
 5. **Acesse a documentação:**
+
 Abra o seu navegador em: http://127.0.0.1:5001/openapi
 
 *"Dica: Certifique-se de selecionar o interpretador Python do ambiente virtual (venv-api) no seu editor."*
